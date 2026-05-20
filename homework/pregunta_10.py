@@ -7,6 +7,9 @@ librerias de pandas para resolver las preguntas.
 
 
 def pregunta_10():
+    import pandas as pd
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    return df.groupby("c1")["c2"].agg(lambda x: ":".join(sorted(x.astype(str)))).rename_axis("_c1").to_frame()
     """
     Construya una tabla que contenga `c1` y una lista separada por ':' de los
     valores de la columna `c2` para el archivo `tbl0.tsv`.
